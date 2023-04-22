@@ -84,6 +84,11 @@ public class AddInterventions extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_interventions);
 
+        buttonAnnuler = (Button) findViewById(R.id.buttonAnnuler);
+        buttonAnnuler.setOnClickListener(view -> {
+            Intent i = new Intent(this, ListeInterv.class);
+            startActivity(i);
+        });
         buttonDeconnexion = (Button) findViewById(R.id.buttonDeconnexion);
         buttonDeconnexion.setOnClickListener(view -> {
             createAndLaunchASWSDecInterv();
