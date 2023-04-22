@@ -52,6 +52,7 @@ public class AddInterventions extends AppCompatActivity {
     private EditText etDateHeureDebut;
     private EditText etDateHeureFin;
     private ArrayAdapter adapterMachine;
+    private CheckBox cbIntervTerm;
     private List<MachineSiteIntervenant> lesMachines = new ArrayList<>();
 
     private ArrayAdapter adapterSympObj;
@@ -171,7 +172,7 @@ public class AddInterventions extends AppCompatActivity {
 
 
         });
-        CheckBox cbIntervTerm = (CheckBox) findViewById(R.id.cbIntervTerm);
+        cbIntervTerm = (CheckBox) findViewById(R.id.cbIntervTerm);
         cbIntervTerm.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
@@ -238,6 +239,11 @@ public class AddInterventions extends AppCompatActivity {
             IntervenantTpsPassee intTempsPassee = new IntervenantTpsPassee();
             intTempsPassee.setIntervenant(intervenant);
             intTempsPassee.setTemps_passee(tpsP);
+            for (IntervenantTpsPassee itps : lesIntervenantsTPS) {
+                if (itps.getIntervenant().getId() == intervenant.getId()) {
+                    return;
+                }
+            }
             lesIntervenantsTPS.add(intTempsPassee);
             adapterIntervenantsTempsPassee.notifyDataSetChanged();
 
@@ -290,17 +296,26 @@ public class AddInterventions extends AppCompatActivity {
             interv.setCause_objet_code(cO.getCode());
             interv.setCommentaire(commentaire);
             String dateD = ((EditText) (findViewById(R.id.etDateHeureDebut))).getText().toString();
+            if(dateD.equals("")){
+                Toast.makeText(this, "La date de debut ne doit pas être vide.", Toast.LENGTH_SHORT).show();
+                return ;
+            }
             LocalDateTime LdateTime = LocalDateTime.parse(dateD, DateTimeFormatter.ofPattern("d-M-yyyy H:m"));
             Instant instant = LdateTime.atZone(ZoneId.systemDefault()).toInstant();
             interv.setDh_debut(Date.from(instant));
             interv.setDh_creation(new Date());
             interv.setTemps_arret(tempsArret);
+            if (cbIntervTerm.isChecked()) {
+                String dateF = ((EditText) (findViewById(R.id.etDateHeureFin))).getText().toString();
+                if(dateF.equals("")){
+                    Toast.makeText(this, "La date de fin ne doit pas être vide.", Toast.LENGTH_SHORT).show();
+                    return ;
+                }
+                LocalDateTime LdateTime2 = LocalDateTime.parse(dateF, DateTimeFormatter.ofPattern("d-M-yyyy H:m"));
+                Instant instant2 = LdateTime2.atZone(ZoneId.systemDefault()).toInstant();
+                interv.setDh_fin(Date.from(instant2));
 
-            String dateF = ((EditText) (findViewById(R.id.etDateHeureFin))).getText().toString();
-            LocalDateTime LdateTime2 = LocalDateTime.parse(dateF, DateTimeFormatter.ofPattern("d-M-yyyy H:m"));
-            Instant instant2 = LdateTime2.atZone(ZoneId.systemDefault()).toInstant();
-            interv.setDh_fin(Date.from(instant2));
-
+            }
             interv.setDh_derniere_maj(new Date());
             int intervenant = Connexion.moi.getId();
             interv.setIntervenant_id(intervenant);
@@ -355,7 +370,10 @@ public class AddInterventions extends AppCompatActivity {
             }
         };
         String formatDhDeb = formatageDate(i.getDh_debut());
-        String formatDhFin = formatageDate(i.getDh_fin());
+        String formatDhFin = "" ;
+        if(i.getDh_fin()!=null){
+           formatDhFin = "&dh_fin=" + formatageDate(i.getDh_fin());
+        }
         String formatDhCreation = formatageDate(i.getDh_creation());
         String formatDhDerniereMaj = formatageDate(i.getDh_derniere_maj());
 
@@ -364,7 +382,7 @@ public class AddInterventions extends AppCompatActivity {
                 "&symptomeobjet=" + i.getSymptome_objet_code() + "&symptomedefaut=" + i.getSymptome_defaut_code() +
                 "&causeobjet=" + i.getCause_objet_code() + "&causedefaut=" + i.getCause_defaut_code() +
                 "&commentaire=" + i.getCommentaire() + "&perte=" + i.getPerte() + "&changement_organe=" + i.getChangement_organe() +
-                "&dh_debut=" + formatDhDeb + "&dh_fin=" + formatDhFin + "&dh_creation=" + formatDhCreation +
+                "&dh_debut=" + formatDhDeb + formatDhFin + "&dh_creation=" + formatDhCreation +
                 "&dh_derniere_maj=" + formatDhDerniereMaj + "&intervenant_id=" + i.getIntervenant_id() + "&temps_arret=" + i.getTemps_arret()
                 + "&listeIntervTps=" + itps
         );

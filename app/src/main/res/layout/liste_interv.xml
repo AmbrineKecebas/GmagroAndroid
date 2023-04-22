@@ -10,21 +10,23 @@
         android:id="@+id/deconnexion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="15dp"
         android:text="Deconnexion"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.881"
+        app:layout_constraintHorizontal_bias="0.899"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvNomInterv"
-        android:layout_width="180dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="40dp"
+        android:layout_width="193dp"
+        android:layout_height="89dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="52dp"
         android:text="TextView"
         app:layout_constraintEnd_toStartOf="@+id/deconnexion"
-        app:layout_constraintHorizontal_bias="0.566"
+        app:layout_constraintHorizontal_bias="0.432"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -32,7 +34,7 @@
         android:id="@+id/titreActivity2"
         android:layout_width="290dp"
         android:layout_height="27dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="72dp"
         android:text="Reprendre une intervention non terminée"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
@@ -41,14 +43,15 @@
 
     <ListView
         android:id="@+id/lvInterventionsNterm"
-        android:layout_width="382dp"
-        android:layout_height="254dp"
+        android:layout_width="353dp"
+        android:layout_height="231dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.448"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titreActivity2"
-        app:layout_constraintVertical_bias="0.41" />
+        app:layout_constraintVertical_bias="0.056" />
 
     <Button
         android:id="@+id/ajoutInterv"
@@ -57,8 +60,8 @@
         android:text="+ Interventions"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lvInterventionsNterm" />
+        app:layout_constraintTop_toBottomOf="@+id/lvInterventionsNterm"
+        app:layout_constraintVertical_bias="0.064" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
