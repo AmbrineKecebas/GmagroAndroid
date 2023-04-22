@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:autofillHints="DLFLD"
+    tools:context=".AddInterventions"
+    tools:layout_editor_absoluteX="-3dp"
+    tools:layout_editor_absoluteY="0dp">
+
+    <Button
+        android:id="@+id/buttonEnvoyer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="196dp"
+        android:text="envoyer "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.407"
+        app:layout_constraintStart_toEndOf="@+id/buttonAnnuler"
+        app:layout_constraintTop_toBottomOf="@+id/buttonIntervTpsPasse" />
+
+    <Spinner
+        android:id="@+id/spTpsPasse"
+        android:layout_width="127dp"
+        android:layout_height="23dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lvIntervTpsPasse" />
+
+    <Spinner
+        android:id="@+id/spTempsArret"
+        android:layout_width="171dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.756"
+        app:layout_constraintStart_toEndOf="@+id/cbMachineArretee"
+        app:layout_constraintTop_toBottomOf="@+id/etDateHeureFin"
+        app:layout_constraintVertical_bias="0.02" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="218dp"
+        android:layout_height="180dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonDeconnexion">
+
+        <Spinner
+            android:id="@+id/spActivite"
+            android:layout_width="194dp"
+            android:layout_height="wrap_content" />
+
+        <Spinner
+            android:id="@+id/spMachine"
+            android:layout_width="194dp"
+            android:layout_height="wrap_content" />
+
+        <Spinner
+            android:id="@+id/spSymptObjet"
+            android:layout_width="194dp"
+            android:layout_height="wrap_content" />
+
+        <Spinner
+            android:id="@+id/spCauseObjet"
+            android:layout_width="194dp"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvIntervConnecte"
+        android:layout_width="138dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="20dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonDeconnexion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="DECONNEXION"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.725"
+        app:layout_constraintStart_toEndOf="@+id/tvIntervConnecte"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="185dp"
+        android:layout_height="181dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="4dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvIntervConnecte">
+
+        <EditText
+            android:id="@+id/etDateHeureDebut"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Date heure début"
+            android:inputType="date" />
+
+        <Spinner
+            android:id="@+id/spSymptDefaut"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Spinner
+            android:id="@+id/spCauseDefaut"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/etCommentaire"
+        android:layout_width="236dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:hint="Commentaire"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+    <CheckBox
+        android:id="@+id/cbIntervTerm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:text="Intervention terminée"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etCommentaire" />
+
+    <CheckBox
+        android:id="@+id/cbMachineArretee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Machine arrêtée"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cbIntervTerm" />
+
+    <CheckBox
+        android:id="@+id/cbChangementOrgane"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Changement d'organe"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cbMachineArretee" />
+
+    <CheckBox
+        android:id="@+id/cbPertes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="8dp"
+        android:text="Pertes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.875"
+        app:layout_constraintStart_toEndOf="@+id/cbChangementOrgane"
+        app:layout_constraintTop_toBottomOf="@+id/spTempsArret" />
+
+    <EditText
+        android:id="@+id/etDateHeureFin"
+        android:layout_width="118dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Date heure fin"
+        android:inputType="date"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.764"
+        app:layout_constraintStart_toEndOf="@+id/cbIntervTerm"
+        app:layout_constraintTop_toBottomOf="@+id/etCommentaire" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Liste des intervenants et temps passé "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cbChangementOrgane" />
+
+    <ListView
+        android:id="@+id/lvIntervTpsPasse"
+        android:layout_width="409dp"
+        android:layout_height="74dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <Spinner
+        android:id="@+id/spInterv"
+        android:layout_width="158dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/spTpsPasse"
+        app:layout_constraintHorizontal_bias="0.212"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lvIntervTpsPasse" />
+
+    <Button
+        android:id="@+id/buttonIntervTpsPasse"
+        android:layout_width="310dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spTpsPasse" />
+
+    <Button
+        android:id="@+id/buttonAnnuler"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonIntervTpsPasse" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
