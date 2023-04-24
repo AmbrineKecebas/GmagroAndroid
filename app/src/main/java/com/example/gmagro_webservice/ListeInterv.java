@@ -28,6 +28,7 @@ public class ListeInterv extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.liste_interv);
         adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1,lesInterventions) ;
         ((ListView) findViewById(R.id.lvInterventionsNterm)).setAdapter(adapter);

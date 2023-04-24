@@ -43,6 +43,7 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 public class AddInterventions extends AppCompatActivity {
     private Button buttonDeconnexion;
@@ -300,7 +301,7 @@ public class AddInterventions extends AppCompatActivity {
                 Toast.makeText(this, "La date de debut ne doit pas être vide.", Toast.LENGTH_SHORT).show();
                 return ;
             }
-            LocalDateTime LdateTime = LocalDateTime.parse(dateD, DateTimeFormatter.ofPattern("d-M-yyyy H:m"));
+            LocalDateTime LdateTime = LocalDateTime.parse(dateD, DateTimeFormatter.ofPattern("d-M-yyyy HH:m"));
             Instant instant = LdateTime.atZone(ZoneId.systemDefault()).toInstant();
             interv.setDh_debut(Date.from(instant));
             interv.setDh_creation(new Date());
@@ -311,7 +312,7 @@ public class AddInterventions extends AppCompatActivity {
                     Toast.makeText(this, "La date de fin ne doit pas être vide.", Toast.LENGTH_SHORT).show();
                     return ;
                 }
-                LocalDateTime LdateTime2 = LocalDateTime.parse(dateF, DateTimeFormatter.ofPattern("d-M-yyyy H:m"));
+                LocalDateTime LdateTime2 = LocalDateTime.parse(dateF, DateTimeFormatter.ofPattern("d-M-yyyy HH:m"));
                 Instant instant2 = LdateTime2.atZone(ZoneId.systemDefault()).toInstant();
                 interv.setDh_fin(Date.from(instant2));
 
@@ -588,6 +589,7 @@ public class AddInterventions extends AppCompatActivity {
 
     private void afficherCalendrier(EditText et) {
         final Calendar c = Calendar.getInstance();
+        c.setTimeZone(TimeZone.getTimeZone("Europe/Paris"));
         int mYear = c.get(Calendar.YEAR);
         int mMonth = c.get(Calendar.MONTH);
         int mDay = c.get(Calendar.DAY_OF_MONTH);

@@ -197,8 +197,8 @@
 
     <EditText
         android:id="@+id/etDateHeureFin"
-        android:layout_width="118dp"
-        android:layout_height="27dp"
+        android:layout_width="142dp"
+        android:layout_height="52dp"
         android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="Date heure fin"
