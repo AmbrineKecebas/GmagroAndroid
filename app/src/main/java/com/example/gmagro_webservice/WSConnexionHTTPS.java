@@ -26,8 +26,7 @@ import okhttp3.Response;
 
 
 public class WSConnexionHTTPS extends AsyncTask<String, Integer, WSResponse> {
-    //private final String base_url = "https://sio.jbdelasalle.com/~amedassi/soirees/ws.php?" ;
-    private final String base_url = "http://sio.jbdelasalle.com/~akecebasbenarif/GmagroPHPAmbrine/?" ;
+     private final String base_url = "http://sio.jbdelasalle.com/~akecebasbenarif/GmagroPHPAmbrine/?" ;
     //private final String base_url = "http://10.0.2.2/GmagroPHPAmbrine/?" ;
     public static final MediaType JSON = MediaType.get("application/json; charset=utf-8");
     private static OkHttpClient client = null;

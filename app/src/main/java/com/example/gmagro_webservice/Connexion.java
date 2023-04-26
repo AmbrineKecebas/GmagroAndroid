@@ -57,13 +57,12 @@ public class Connexion extends AppCompatActivity {
                 ObjectMapper oM = new ObjectMapper();
                 try {
                     moi = oM.readValue(s.getResult(), Intervenant.class);
-
+                    Intent i = new Intent(this, ListeInterv.class);
+                    startActivityForResult(i, REQUEST_LISTER_INTERV);
+                    Toast.makeText(this, "Connexion", Toast.LENGTH_SHORT).show();
                 } catch (JsonProcessingException e) {
                     e.printStackTrace();
                 }
-                Intent i = new Intent(this, ListeInterv.class);
-                startActivityForResult(i, REQUEST_LISTER_INTERV);
-                Toast.makeText(this, "Connexion", Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(this, "Mauvais login ou mdp", Toast.LENGTH_SHORT).show();
 
