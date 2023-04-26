@@ -9,17 +9,17 @@ import java.util.Date;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Intervention {
     private int id;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss",  timezone = "Europe/Paris")
     private Date dh_debut;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss" , timezone = "Europe/Paris")
     private Date dh_fin;
     private String commentaire = "";
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss" , timezone = "Europe/Paris")
     private Date dh_creation;
     private String temps_arret;
     private int changement_organe;
     private int perte;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss" , timezone = "Europe/Paris")
     private Date dh_derniere_maj;
     private int intervenant_id;
     private String activite_code;
