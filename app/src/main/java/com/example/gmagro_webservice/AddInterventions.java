@@ -137,8 +137,13 @@ public class AddInterventions extends AppCompatActivity {
         for (int i = 0; i <= 7; i++) {
             for (int j = 0; j <= 45; j = j + 15) {
                 String minute = String.valueOf(j);
-                if (j == 0) {
+
+                if (j == 0 && i == 0) {
+                    minute = "15";
+                    j = 15;
+                } else if (j == 0 && i != 0) {
                     minute = "00";
+                    j = 00;
                 }
                 String tps = "0" + i + ":" + minute;
                 TpsArrets.add(tps);
@@ -297,9 +302,9 @@ public class AddInterventions extends AppCompatActivity {
             interv.setCause_objet_code(cO.getCode());
             interv.setCommentaire(commentaire);
             String dateD = ((EditText) (findViewById(R.id.etDateHeureDebut))).getText().toString();
-            if(dateD.equals("")){
+            if (dateD.equals("")) {
                 Toast.makeText(this, "La date de debut ne doit pas être vide.", Toast.LENGTH_SHORT).show();
-                return ;
+                return;
             }
             LocalDateTime LdateTime = LocalDateTime.parse(dateD, DateTimeFormatter.ofPattern("d-M-y H:m"));
             Instant instant = LdateTime.atZone(ZoneId.systemDefault()).toInstant();
@@ -308,9 +313,9 @@ public class AddInterventions extends AppCompatActivity {
             interv.setTemps_arret(tempsArret);
             if (cbIntervTerm.isChecked()) {
                 String dateF = ((EditText) (findViewById(R.id.etDateHeureFin))).getText().toString();
-                if(dateF.equals("")){
+                if (dateF.equals("")) {
                     Toast.makeText(this, "La date de fin ne doit pas être vide.", Toast.LENGTH_SHORT).show();
-                    return ;
+                    return;
                 }
                 LocalDateTime LdateTime2 = LocalDateTime.parse(dateF, DateTimeFormatter.ofPattern("d-M-y H" +
                         ":m"));
@@ -372,9 +377,9 @@ public class AddInterventions extends AppCompatActivity {
             }
         };
         String formatDhDeb = formatageDate(i.getDh_debut());
-        String formatDhFin = "" ;
-        if(i.getDh_fin()!=null){
-           formatDhFin = "&dh_fin=" + formatageDate(i.getDh_fin());
+        String formatDhFin = "";
+        if (i.getDh_fin() != null) {
+            formatDhFin = "&dh_fin=" + formatageDate(i.getDh_fin());
         }
         String formatDhCreation = formatageDate(i.getDh_creation());
         String formatDhDerniereMaj = formatageDate(i.getDh_derniere_maj());
